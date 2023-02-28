@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33328.57
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "LoanCalculator.Database", "LoanCalculator.Database\LoanCalculator.Database.sqlproj", "{086FA88A-E41F-45CF-AA72-5E2218D0BE89}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoanCalculator.DataAccessLayer", "LoanCalculator.DataAccessLayer\LoanCalculator.DataAccessLayer.csproj", "{F3404580-0DA3-4BDF-A7C2-880FBD699B25}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoanCalculator.BusinessLayer", "LoanCalculator.BusinessLayer\LoanCalculator.BusinessLayer.csproj", "{E73727F1-EE4B-4E8E-A62E-B08C327ACD09}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoanCalculator.Application.Web", "LoanCalculator.Application.Web\LoanCalculator.Application.Web.csproj", "{7364F8DB-8A37-49B6-B91F-A351F265EEB6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{086FA88A-E41F-45CF-AA72-5E2218D0BE89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{086FA88A-E41F-45CF-AA72-5E2218D0BE89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{086FA88A-E41F-45CF-AA72-5E2218D0BE89}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{086FA88A-E41F-45CF-AA72-5E2218D0BE89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{086FA88A-E41F-45CF-AA72-5E2218D0BE89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{086FA88A-E41F-45CF-AA72-5E2218D0BE89}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{F3404580-0DA3-4BDF-A7C2-880FBD699B25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3404580-0DA3-4BDF-A7C2-880FBD699B25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3404580-0DA3-4BDF-A7C2-880FBD699B25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3404580-0DA3-4BDF-A7C2-880FBD699B25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E73727F1-EE4B-4E8E-A62E-B08C327ACD09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E73727F1-EE4B-4E8E-A62E-B08C327ACD09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E73727F1-EE4B-4E8E-A62E-B08C327ACD09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E73727F1-EE4B-4E8E-A62E-B08C327ACD09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7364F8DB-8A37-49B6-B91F-A351F265EEB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7364F8DB-8A37-49B6-B91F-A351F265EEB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7364F8DB-8A37-49B6-B91F-A351F265EEB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7364F8DB-8A37-49B6-B91F-A351F265EEB6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {89861265-0C6F-4277-9606-E684FA65CC62}
+	EndGlobalSection
+EndGlobal
