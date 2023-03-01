@@ -1,10 +1,10 @@
-﻿using LoanCalculator.DataAccessLayer.Model.Entities;
+﻿using LoanCalculator.DataAccessLayer.Models;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 
-namespace LoanCalculator.DataAccessLayer.Model.Configuration
+namespace LoanCalculator.DataAccessLayer.EFContext.Mapping
 {
-    class CustomerMap : EntityTypeConfiguration<Customer>
+    public class CustomerMap : EntityTypeConfiguration<Customer>
     {
         public CustomerMap()
         {

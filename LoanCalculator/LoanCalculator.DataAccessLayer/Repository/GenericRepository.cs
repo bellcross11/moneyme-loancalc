@@ -15,37 +15,22 @@ namespace LoanCalculator.DataAccessLayer.Repository
             _context = context;
         }
 
-        public IEnumerable<TEntity> Search(Expression<Func<TEntity, bool>> filter = null, 
-            Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null, 
-            string includeProperties = "")
+        public IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate)
         {
-            IQueryable<TEntity> query = _context.Set<TEntity>();
-
-            if (filter != null)
-            {
-                query = query.Where(filter);
-            }
-
-            foreach (var includeProperty in includeProperties.Split
-                (new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
-            {
-                query = query.Include(includeProperty);
-            }
-
-            if (orderBy != null)
-            {
-                return orderBy(query).ToList();
-            }
-            else
-            {
-                return query.ToList();
-            }
+            return _context.Set<TEntity>().ToList();
         }
 
-        public TEntity Get(int id)
+        public TEntity Get(object obj)
         {
-            return _context.Set<TEntity>().Find(id);
+            return _context.Set<TEntity>().Find(obj);
         }
+
+        public IEnumerable<TEntity> GetAll()
+        {
+            return _context.Set<TEntity>().ToList();
+        }
+
+
 
         public void Add(TEntity entity)
         {
@@ -56,6 +41,8 @@ namespace LoanCalculator.DataAccessLayer.Repository
         {
             _context.Set<TEntity>().AddRange(entities);
         }
+
+
 
         public void Remove(TEntity entity)
         {

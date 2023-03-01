@@ -1,7 +1,7 @@
-﻿using LoanCalculator.DataAccessLayer.Model.Configuration;
+﻿using LoanCalculator.DataAccessLayer.EFContext.Mapping;
 using System.Data.Entity;
 
-namespace LoanCalculator.DataAccessLayer
+namespace LoanCalculator.DataAccessLayer.EFContext
 {
     public class loanDBContext : DbContext
     {

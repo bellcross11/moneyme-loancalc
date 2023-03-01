@@ -51,11 +51,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="loanDBContext.cs" />
-    <Compile Include="Model\Configuration\CustomerMap.cs" />
-    <Compile Include="Model\Configuration\LoanMap.cs" />
-    <Compile Include="Model\Entities\Customer.cs" />
-    <Compile Include="Model\Entities\Loan.cs" />
+    <Compile Include="EFContext\loanDBContext.cs" />
+    <Compile Include="EFContext\Mapping\CustomerMap.cs" />
+    <Compile Include="EFContext\Mapping\LoanMap.cs" />
+    <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Loan.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\GenericRepository.cs" />
     <Compile Include="Repository\IRepository.cs" />

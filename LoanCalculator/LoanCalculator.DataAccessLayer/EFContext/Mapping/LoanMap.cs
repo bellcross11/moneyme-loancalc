@@ -1,8 +1,8 @@
-﻿using LoanCalculator.DataAccessLayer.Model.Entities;
+﻿using LoanCalculator.DataAccessLayer.Models;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 
-namespace LoanCalculator.DataAccessLayer.Model.Configuration
+namespace LoanCalculator.DataAccessLayer.EFContext.Mapping
 {
     public class LoanMap : EntityTypeConfiguration<Loan>
     {
@@ -26,7 +26,7 @@ namespace LoanCalculator.DataAccessLayer.Model.Configuration
 
             this.Property(i => i.DateAdded).HasColumnType("datetime").IsRequired();
 
-            this.ToTable("tblCustomers");
+            this.ToTable("tblLoans");
         }
     }
 }
