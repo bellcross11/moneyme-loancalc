@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq.Expressions;
 
-namespace LoanCalculator.DataAccessLayer.Repository
+namespace LoanCalculator.DataAccessLayer.Repositories.IRepositories
 {
-    public interface IRepository<TEntity> where TEntity : class
+    public interface IGenericRepository<TEntity> where TEntity : class
     {
         TEntity Get(object obj);
         IEnumerable<TEntity> GetAll();

@@ -1,4 +1,4 @@
-﻿using System;
+﻿
 
 namespace LoanCalculator.DataAccessLayer.Models
 {
@@ -12,6 +12,5 @@ namespace LoanCalculator.DataAccessLayer.Models
         public decimal MonthlyRepayment { get; set; }
         public decimal TotalInterest { get; set; }
         public decimal TotalRepayment { get; set; }
-        public DateTime DateAdded { get; set; }
     }
 }

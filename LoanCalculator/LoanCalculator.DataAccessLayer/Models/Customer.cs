@@ -11,5 +11,8 @@ namespace LoanCalculator.DataAccessLayer.Models
         public DateTime DateOfBirth { get; set; }
         public string Mobile { get; set; }
         public string Email { get; set; }
+        public Guid GeneratedLink { get; set; }
+
+        public Loan Loan { get; set; }
     }
 }

@@ -6,5 +6,6 @@
     [LastName] NVARCHAR(50) NOT NULL, 
     [DateOfBirth] DATETIME NOT NULL, 
     [Mobile] NVARCHAR(13) NULL, 
-    [Email] NVARCHAR(80) NULL
+    [Email] NVARCHAR(80) NULL, 
+    [GeneratedLink] UNIQUEIDENTIFIER NOT NULL
 )

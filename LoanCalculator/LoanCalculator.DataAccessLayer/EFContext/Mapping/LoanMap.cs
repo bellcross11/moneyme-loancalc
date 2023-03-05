@@ -24,8 +24,6 @@ namespace LoanCalculator.DataAccessLayer.EFContext.Mapping
 
             this.Property(i => i.TotalRepayment).HasPrecision(18, 2).IsRequired();
 
-            this.Property(i => i.DateAdded).HasColumnType("datetime").IsRequired();
-
             this.ToTable("tblLoans");
         }
     }

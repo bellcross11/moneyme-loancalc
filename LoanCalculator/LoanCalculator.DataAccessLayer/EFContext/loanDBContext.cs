@@ -3,9 +3,9 @@ using System.Data.Entity;
 
 namespace LoanCalculator.DataAccessLayer.EFContext
 {
-    public class loanDBContext : DbContext
+    public class LoanDBContext : DbContext
     {
-        public loanDBContext() : base("loanDBEntities")
+        public LoanDBContext() : base("loanDBEntities")
         {
 
         }

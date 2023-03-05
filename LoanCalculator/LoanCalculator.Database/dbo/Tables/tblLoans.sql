@@ -7,6 +7,5 @@
     [PrincipalAmount] DECIMAL(18, 2) NOT NULL DEFAULT 0, 
     [MonthlyRepayment] DECIMAL(18, 2) NOT NULL DEFAULT 0, 
     [TotalInterest] DECIMAL(18, 2) NOT NULL DEFAULT 0, 
-    [TotalRepayment] DECIMAL(18, 2) NOT NULL DEFAULT 0, 
-    [DateAdded] DATETIME NOT NULL DEFAULT GETDATE()
+    [TotalRepayment] DECIMAL(18, 2) NOT NULL DEFAULT 0 
 )

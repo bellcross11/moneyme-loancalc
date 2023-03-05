@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E73727F1-EE4B-4E8E-A62E-B08C327ACD09}</ProjectGuid>
+    <ProjectGuid>{8C013C46-3B7B-46BB-813E-D7308FAC2988}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>LoanCalculator.BusinessLayer</RootNamespace>
@@ -41,7 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataTransferObjects\CustomerDto.cs" />
+    <Compile Include="DataTransferObjects\LoanDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\CustomerService.cs" />
+    <Compile Include="Services\IServices\ICustomerService.cs" />
+    <Compile Include="Services\IServices\ILoanService.cs" />
+    <Compile Include="Services\LoanService.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

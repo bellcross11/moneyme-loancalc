@@ -1,23 +1,19 @@
-﻿using System;
+﻿using LoanCalculator.DataAccessLayer.Repositories.IRepositories;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace LoanCalculator.DataAccessLayer.Repository
+namespace LoanCalculator.DataAccessLayer.Repositories
 {
-    public class GenericRepository<TEntity> : IRepository<TEntity> where TEntity : class
+    public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
     {
-        private readonly DbContext _context;
+        protected readonly DbContext _context;
 
         public GenericRepository(DbContext context)
         {
             _context = context;
-        }
-
-        public IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate)
-        {
-            return _context.Set<TEntity>().ToList();
         }
 
         public TEntity Get(object obj)
@@ -30,7 +26,10 @@ namespace LoanCalculator.DataAccessLayer.Repository
             return _context.Set<TEntity>().ToList();
         }
 
-
+        public IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate)
+        {
+            return _context.Set<TEntity>().Where(predicate);
+        }
 
         public void Add(TEntity entity)
         {
@@ -41,8 +40,6 @@ namespace LoanCalculator.DataAccessLayer.Repository
         {
             _context.Set<TEntity>().AddRange(entities);
         }
-
-
 
         public void Remove(TEntity entity)
         {
