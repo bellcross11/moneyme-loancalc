@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Threading.Tasks;
 
 namespace LoanCalculator.DataAccessLayer.Repositories
 {
@@ -16,19 +17,19 @@ namespace LoanCalculator.DataAccessLayer.Repositories
             _context = context;
         }
 
-        public TEntity Get(object obj)
+        public async Task<TEntity> GetAsync(object obj)
         {
-            return _context.Set<TEntity>().Find(obj);
+            return await _context.Set<TEntity>().FindAsync(obj);
         }
 
-        public IEnumerable<TEntity> GetAll()
+        public async Task<IEnumerable<TEntity>> GetAllAsync()
         {
-            return _context.Set<TEntity>().ToList();
+            return await _context.Set<TEntity>().ToListAsync();
         }
 
-        public IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate)
+        public async Task<IEnumerable<TEntity>> FindAsync(Expression<Func<TEntity, bool>> predicate)
         {
-            return _context.Set<TEntity>().Where(predicate);
+            return await _context.Set<TEntity>().Where(predicate).ToListAsync();
         }
 
         public void Add(TEntity entity)

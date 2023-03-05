@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace LoanCalculator.DataAccessLayer.Models
 {
@@ -11,8 +12,7 @@ namespace LoanCalculator.DataAccessLayer.Models
         public DateTime DateOfBirth { get; set; }
         public string Mobile { get; set; }
         public string Email { get; set; }
-        public Guid GeneratedLink { get; set; }
 
-        public Loan Loan { get; set; }
+        public virtual ICollection<Loan> Loans { get; set; }
     }
 }

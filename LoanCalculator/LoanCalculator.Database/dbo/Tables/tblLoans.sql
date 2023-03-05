@@ -7,5 +7,6 @@
     [PrincipalAmount] DECIMAL(18, 2) NOT NULL DEFAULT 0, 
     [MonthlyRepayment] DECIMAL(18, 2) NOT NULL DEFAULT 0, 
     [TotalInterest] DECIMAL(18, 2) NOT NULL DEFAULT 0, 
-    [TotalRepayment] DECIMAL(18, 2) NOT NULL DEFAULT 0 
+    [TotalRepayment] DECIMAL(18, 2) NOT NULL DEFAULT 0,
+    [GeneratedLink] UNIQUEIDENTIFIER NOT NULL
 )
