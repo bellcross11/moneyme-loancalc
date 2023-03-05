@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace LoanCalculator.DataAccessLayer.Repositories
 {
-    public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
+    public class GenericRepository<TEntity> : IRepository<TEntity> where TEntity : class
     {
-        protected readonly DbContext _context;
+        private readonly DbContext _context;
 
         public GenericRepository(DbContext context)
         {

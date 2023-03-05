@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace LoanCalculator.DataAccessLayer.Repositories.IRepositories
 {
-    public interface IGenericRepository<TEntity> where TEntity : class
+    public interface IRepository<TEntity> where TEntity : class
     {
         Task<TEntity> GetAsync(object obj);
         Task<IEnumerable<TEntity>> GetAllAsync();

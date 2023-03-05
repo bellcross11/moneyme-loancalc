@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace LoanCalculator.DataAccessLayer.Repositories.IRepositories
 {
-    public interface ICustomerRepository : IGenericRepository<Customer>
+    public interface ICustomerRepository : IRepository<Customer>
     {
         Task<Customer> GetCustomerByFirstNameLastNameDateOfBirth(string FirstName, string LastName, DateTime DateOfBirth);
     }
