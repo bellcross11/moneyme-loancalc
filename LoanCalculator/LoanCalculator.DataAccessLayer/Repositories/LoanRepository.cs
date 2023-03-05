@@ -15,5 +15,13 @@ namespace LoanCalculator.DataAccessLayer.Repositories
         {
 
         }
+
+        public async Task<Loan> GetCustomerLoanByGeneratedLinkAsync(string generatedLink)
+        {
+            var guidLink = Guid.Parse(generatedLink);
+            var query = await base.FirstOrDefaultAsync(i => i.GeneratedLink == guidLink);
+
+            return query;
+        }
     }
 }

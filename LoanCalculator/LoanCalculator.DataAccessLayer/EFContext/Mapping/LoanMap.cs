@@ -24,6 +24,10 @@ namespace LoanCalculator.DataAccessLayer.EFContext.Mapping
 
             this.Property(i => i.TotalRepayment).HasPrecision(18, 2).IsRequired();
 
+            this.Property(i => i.EstablishmentFee).HasPrecision(18, 2).IsRequired();
+
+            this.Property(i => i.GeneratedLink).IsRequired();
+
             this.ToTable("tblLoans");
         }
     }

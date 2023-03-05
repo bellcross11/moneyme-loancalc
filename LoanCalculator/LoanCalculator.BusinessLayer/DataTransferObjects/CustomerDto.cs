@@ -4,6 +4,7 @@ namespace LoanCalculator.BusinessLayer.DataTransferObjects
 {
     public class CustomerDto
     {
+        public int CustomerId { get; set; }
         public string Title { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -17,5 +18,6 @@ namespace LoanCalculator.BusinessLayer.DataTransferObjects
         public decimal MonthlyRepayment { get; set; }
         public decimal TotalInterest { get; set; }
         public decimal TotalRepayment { get; set; }
+        public decimal EstablishmentFee { get; set; }
     }
 }

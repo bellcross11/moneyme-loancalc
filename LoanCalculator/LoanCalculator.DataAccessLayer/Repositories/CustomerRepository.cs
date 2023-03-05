@@ -15,5 +15,16 @@ namespace LoanCalculator.DataAccessLayer.Repositories
         {
 
         }
+
+        public async Task<Customer> GetCustomerByFirstNameLastNameDateOfBirth(string FirstName, string LastName, DateTime DateOfBirth)
+        {
+            var res = await base.FirstOrDefaultAsync(i =>
+                i.FirstName == FirstName &&
+                i.LastName == LastName &&
+                i.DateOfBirth == DateOfBirth
+            );
+
+            return res;
+        }
     }
 }

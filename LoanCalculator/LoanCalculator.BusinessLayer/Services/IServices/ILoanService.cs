@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace LoanCalculator.BusinessLayer.Services.IServices
 {
-    interface ILoanService
+    public interface ILoanService
     {
+
     }
 }

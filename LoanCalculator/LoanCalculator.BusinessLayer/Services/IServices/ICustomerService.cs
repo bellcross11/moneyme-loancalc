@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using LoanCalculator.BusinessLayer.DataTransferObjects;
 using System.Threading.Tasks;
 
 namespace LoanCalculator.BusinessLayer.Services.IServices
 {
-    interface ICustomerService
+    public interface ICustomerService
     {
+        Task<string> AddCustomerThenGenerateLink(CustomerDto customer);
+
+        Task<CustomerDto> GetCustomerAndLoanDetails(string link);
+
+        Task UpdateCustomerDetails(CustomerDto customer);
     }
 }

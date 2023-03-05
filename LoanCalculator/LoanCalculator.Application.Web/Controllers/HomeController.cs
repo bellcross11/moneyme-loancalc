@@ -13,16 +13,9 @@ namespace LoanCalculator.Application.Web.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult LoanCalculator(string link)
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.link = link;
 
             return View();
         }

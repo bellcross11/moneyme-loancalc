@@ -180,8 +180,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\LoanCalculator.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -200,6 +199,16 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LoanCalculator.BusinessLayer\LoanCalculator.BusinessLayer.csproj">
+      <Project>{8C013C46-3B7B-46BB-813E-D7308FAC2988}</Project>
+      <Name>LoanCalculator.BusinessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LoanCalculator.DataAccessLayer\LoanCalculator.DataAccessLayer.csproj">
+      <Project>{F3404580-0DA3-4BDF-A7C2-880FBD699B25}</Project>
+      <Name>LoanCalculator.DataAccessLayer</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

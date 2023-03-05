@@ -49,6 +49,11 @@
     <Compile Include="Services\IServices\ILoanService.cs" />
     <Compile Include="Services\LoanService.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\LoanCalculator.DataAccessLayer\LoanCalculator.DataAccessLayer.csproj">
+      <Project>{F3404580-0DA3-4BDF-A7C2-880FBD699B25}</Project>
+      <Name>LoanCalculator.DataAccessLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
