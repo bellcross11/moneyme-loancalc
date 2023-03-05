@@ -1,5 +1,6 @@
 ﻿using LoanCalculator.DataAccessLayer.Repositories.IRepositories;
 using System;
+using System.Threading.Tasks;
 
 namespace LoanCalculator.DataAccessLayer.UnitOfWork
 {
@@ -7,6 +8,6 @@ namespace LoanCalculator.DataAccessLayer.UnitOfWork
     {
         ICustomerRepository Customers { get; }
         ILoanRepository Loans { get; }
-        int Complete();
+        Task<int> CompleteAsync();
     }
 }

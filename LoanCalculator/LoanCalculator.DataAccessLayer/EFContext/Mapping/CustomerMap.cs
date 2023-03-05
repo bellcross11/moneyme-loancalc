@@ -22,6 +22,11 @@ namespace LoanCalculator.DataAccessLayer.EFContext.Mapping
 
             this.Property(c => c.Email).HasMaxLength(80).IsOptional();
 
+            // configure one-to-many relationship
+            this.HasMany(c => c.Loans)
+                .WithRequired(lo => lo.Customer)
+                .HasForeignKey<int>(lo => lo.CustomerId);
+
             this.ToTable("tblCustomers");
         }
     }

@@ -1,6 +1,7 @@
 ﻿using LoanCalculator.DataAccessLayer.Repositories;
 using LoanCalculator.DataAccessLayer.Repositories.IRepositories;
 using System.Data.Entity;
+using System.Threading.Tasks;
 
 namespace LoanCalculator.DataAccessLayer.UnitOfWork
 {
@@ -19,9 +20,9 @@ namespace LoanCalculator.DataAccessLayer.UnitOfWork
 
         public ILoanRepository Loans { get; private set; }
 
-        public int Complete()
+        public async Task<int> CompleteAsync()
         {
-            return _context.SaveChanges();
+            return await _context.SaveChangesAsync();
         }
 
         public void Dispose()
