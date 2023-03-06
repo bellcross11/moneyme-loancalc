@@ -1,12 +1,12 @@
-﻿using LoanCalculator.DataAccessLayer.Models;
+﻿using LoanCalculator.DataAccess.Core.Domain;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 
-namespace LoanCalculator.DataAccessLayer.EFContext.Mapping
+namespace LoanCalculator.Infrastructure.EFContext.Configurations
 {
-    public class CustomerMap : EntityTypeConfiguration<Customer>
+    public class CustomerConfiguration : EntityTypeConfiguration<Customer>
     {
-        public CustomerMap()
+        public CustomerConfiguration()
         {
             this.HasKey(c => c.CustomerId).HasTableAnnotation("DatabaseGenerated", DatabaseGeneratedOption.Identity);
 

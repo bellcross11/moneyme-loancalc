@@ -5,13 +5,11 @@ VisualStudioVersion = 16.0.33328.57
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "LoanCalculator.Database", "LoanCalculator.Database\LoanCalculator.Database.sqlproj", "{086FA88A-E41F-45CF-AA72-5E2218D0BE89}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoanCalculator.DataAccessLayer", "LoanCalculator.DataAccessLayer\LoanCalculator.DataAccessLayer.csproj", "{F3404580-0DA3-4BDF-A7C2-880FBD699B25}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoanCalculator.Application.Web", "LoanCalculator.Application.Web\LoanCalculator.Application.Web.csproj", "{7364F8DB-8A37-49B6-B91F-A351F265EEB6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoanCalculator.BusinessLayer", "LoanCalculator.BusinessLayer\LoanCalculator.BusinessLayer.csproj", "{8C013C46-3B7B-46BB-813E-D7308FAC2988}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoanCalculator.Test", "LoanCalculator.Test\LoanCalculator.Test.csproj", "{3DFDBA1D-AA26-4861-A1E5-FAA2807CC366}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoanCalculator.DataAccess", "LoanCalculator.DataAccess\LoanCalculator.DataAccess.csproj", "{1B064125-F5F1-4D95-9D51-1933B0B30D94}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,22 +23,18 @@ Global
 		{086FA88A-E41F-45CF-AA72-5E2218D0BE89}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{086FA88A-E41F-45CF-AA72-5E2218D0BE89}.Release|Any CPU.Build.0 = Release|Any CPU
 		{086FA88A-E41F-45CF-AA72-5E2218D0BE89}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{F3404580-0DA3-4BDF-A7C2-880FBD699B25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F3404580-0DA3-4BDF-A7C2-880FBD699B25}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F3404580-0DA3-4BDF-A7C2-880FBD699B25}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F3404580-0DA3-4BDF-A7C2-880FBD699B25}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7364F8DB-8A37-49B6-B91F-A351F265EEB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7364F8DB-8A37-49B6-B91F-A351F265EEB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7364F8DB-8A37-49B6-B91F-A351F265EEB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7364F8DB-8A37-49B6-B91F-A351F265EEB6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8C013C46-3B7B-46BB-813E-D7308FAC2988}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8C013C46-3B7B-46BB-813E-D7308FAC2988}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8C013C46-3B7B-46BB-813E-D7308FAC2988}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8C013C46-3B7B-46BB-813E-D7308FAC2988}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3DFDBA1D-AA26-4861-A1E5-FAA2807CC366}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3DFDBA1D-AA26-4861-A1E5-FAA2807CC366}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3DFDBA1D-AA26-4861-A1E5-FAA2807CC366}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3DFDBA1D-AA26-4861-A1E5-FAA2807CC366}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B064125-F5F1-4D95-9D51-1933B0B30D94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B064125-F5F1-4D95-9D51-1933B0B30D94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B064125-F5F1-4D95-9D51-1933B0B30D94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B064125-F5F1-4D95-9D51-1933B0B30D94}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

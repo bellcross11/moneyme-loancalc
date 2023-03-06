@@ -5,11 +5,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F3404580-0DA3-4BDF-A7C2-880FBD699B25}</ProjectGuid>
+    <ProjectGuid>{1B064125-F5F1-4D95-9D51-1933B0B30D94}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>LoanCalculator.DataAccessLayer</RootNamespace>
-    <AssemblyName>LoanCalculator.DataAccessLayer</AssemblyName>
+    <RootNamespace>LoanCalculator.DataAccess</RootNamespace>
+    <AssemblyName>LoanCalculator.DataAccess</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -51,26 +51,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EFContext\LoanDBContext.cs" />
-    <Compile Include="EFContext\Mapping\CustomerMap.cs" />
-    <Compile Include="EFContext\Mapping\LoanMap.cs" />
-    <Compile Include="Models\Customer.cs" />
-    <Compile Include="Models\Loan.cs" />
+    <Compile Include="Core\Domain\Customer.cs" />
+    <Compile Include="Core\Domain\Loan.cs" />
+    <Compile Include="Core\IRepositories\ICustomerRepository.cs" />
+    <Compile Include="Core\IRepositories\ILoanRepository.cs" />
+    <Compile Include="Core\IRepositories\IRepository.cs" />
+    <Compile Include="Core\IUnitOfWork.cs" />
+    <Compile Include="Persistence\EFContext\Configurations\CustomerConfiguration.cs" />
+    <Compile Include="Persistence\EFContext\Configurations\LoanConfiguration.cs" />
+    <Compile Include="Persistence\EFContext\LoanDBContext.cs" />
+    <Compile Include="Persistence\Repositories\CustomerRepository.cs" />
+    <Compile Include="Persistence\Repositories\LoanRepository.cs" />
+    <Compile Include="Persistence\Repositories\Repository.cs" />
+    <Compile Include="Persistence\UnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\CustomerRepository.cs" />
-    <Compile Include="Repositories\GenericRepository.cs" />
-    <Compile Include="Repositories\IRepositories\IRepository.cs" />
-    <Compile Include="Repositories\LoanRepository.cs" />
-    <Compile Include="Repositories\IRepositories\ICustomerRepository.cs" />
-    <Compile Include="Repositories\IRepositories\ILoanRepository.cs" />
-    <Compile Include="UnitOfWork\IUnitOfWork.cs" />
-    <Compile Include="UnitOfWork\UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

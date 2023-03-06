@@ -1,8 +1,8 @@
-﻿using LoanCalculator.DataAccessLayer.Repositories.IRepositories;
+﻿using LoanCalculator.DataAccess.Core.IRepositories;
 using System;
 using System.Threading.Tasks;
 
-namespace LoanCalculator.DataAccessLayer.UnitOfWork
+namespace LoanCalculator.DataAccess.Core
 {
     public interface IUnitOfWork : IDisposable
     {

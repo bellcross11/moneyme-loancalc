@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("LoanCalculator.BusinessLayer")]
+[assembly: AssemblyTitle("LoanCalculator.DataAccess")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("LoanCalculator.BusinessLayer")]
+[assembly: AssemblyProduct("LoanCalculator.DataAccess")]
 [assembly: AssemblyCopyright("Copyright ©  2023")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("8c013c46-3b7b-46bb-813e-d7308fac2988")]
+[assembly: Guid("1b064125-f5f1-4d95-9d51-1933b0b30d94")]
 
 // Version information for an assembly consists of the following four values:
 //

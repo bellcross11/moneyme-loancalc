@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace LoanCalculator.DataAccessLayer.Models
+namespace LoanCalculator.DataAccess.Core.Domain
 {
     public class Loan
     {
@@ -12,7 +12,7 @@ namespace LoanCalculator.DataAccessLayer.Models
         public decimal TotalInterest { get; set; }
         public decimal TotalRepayment { get; set; }
         public decimal EstablishmentFee { get; set; }
-        public Guid GeneratedLink { get; set; }        
+        public Guid GeneratedLink { get; set; }
 
         public int CustomerId { get; set; }
         public Customer Customer { get; set; }

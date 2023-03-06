@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace LoanCalculator.DataAccessLayer.Models
+namespace LoanCalculator.DataAccess.Core.Domain
 {
     public class Customer
     {
@@ -13,6 +13,6 @@ namespace LoanCalculator.DataAccessLayer.Models
         public string Mobile { get; set; }
         public string Email { get; set; }
 
-        public virtual ICollection<Loan> Loans { get; set; }
+        public ICollection<Loan> Loans { get; set; }
     }
 }

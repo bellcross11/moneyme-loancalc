@@ -1,19 +1,20 @@
-﻿using LoanCalculator.DataAccessLayer.Repositories;
-using LoanCalculator.DataAccessLayer.Repositories.IRepositories;
-using System.Data.Entity;
+﻿using LoanCalculator.DataAccess.Core;
+using LoanCalculator.DataAccess.Core.IRepositories;
+using LoanCalculator.DataAccess.Persistence.EFContext;
+using LoanCalculator.DataAccess.Persistence.Repositories;
 using System.Threading.Tasks;
 
-namespace LoanCalculator.DataAccessLayer.UnitOfWork
+namespace LoanCalculator.DataAccess.Persistence
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly DbContext _context;
+        private readonly LoanDBContext _context;
 
-        public UnitOfWork(DbContext context)
+        public UnitOfWork(LoanDBContext context)
         {
             _context = context;
-            Customers = new CustomerRepository(_context);
-            Loans = new LoanRepository(_context);
+            Customers = new CustomerRepository(context);
+            Loans = new LoanRepository(context);
         }
 
         public ICustomerRepository Customers { get; private set; }
