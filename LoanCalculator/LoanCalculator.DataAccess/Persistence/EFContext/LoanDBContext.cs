@@ -11,13 +11,12 @@ namespace LoanCalculator.DataAccess.Persistence.EFContext
             this.Configuration.LazyLoadingEnabled = false;
         }
 
-        public virtual DbSet<Customer> Customers { get; set; }
-        public virtual DbSet<Loan> Loans { get; set; }
+
+        public virtual DbSet<LoanForm> Loans { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Configurations.Add(new CustomerConfiguration());
             modelBuilder.Configurations.Add(new LoanConfiguration());
 
             base.OnModelCreating(modelBuilder);

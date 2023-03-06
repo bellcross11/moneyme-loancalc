@@ -51,16 +51,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\Domain\Customer.cs" />
-    <Compile Include="Core\Domain\Loan.cs" />
-    <Compile Include="Core\IRepositories\ICustomerRepository.cs" />
+    <Compile Include="Core\Domain\LoanForm.cs" />
     <Compile Include="Core\IRepositories\ILoanRepository.cs" />
     <Compile Include="Core\IRepositories\IRepository.cs" />
     <Compile Include="Core\IUnitOfWork.cs" />
-    <Compile Include="Persistence\EFContext\Configurations\CustomerConfiguration.cs" />
     <Compile Include="Persistence\EFContext\Configurations\LoanConfiguration.cs" />
     <Compile Include="Persistence\EFContext\LoanDBContext.cs" />
-    <Compile Include="Persistence\Repositories\CustomerRepository.cs" />
     <Compile Include="Persistence\Repositories\LoanRepository.cs" />
     <Compile Include="Persistence\Repositories\Repository.cs" />
     <Compile Include="Persistence\UnitOfWork.cs" />
