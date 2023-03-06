@@ -1,7 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using LoanCalculator.Application.Web.Configurations;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
@@ -13,6 +10,9 @@ namespace LoanCalculator.Application.Web
     {
         protected void Application_Start()
         {
+            // AutoFac
+            IocConfig.Initialize(GlobalConfiguration.Configuration);
+
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
