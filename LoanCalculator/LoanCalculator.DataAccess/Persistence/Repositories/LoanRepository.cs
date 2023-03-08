@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace LoanCalculator.DataAccess.Persistence.Repositories
 {
-    public class LoanRepository : Repository<Loan>, ILoanRepository
+    public class LoanRepository : Repository<LoanForm>, ILoanRepository
     {
         private readonly LoanDBContext _context;
 
@@ -17,6 +17,24 @@ namespace LoanCalculator.DataAccess.Persistence.Repositories
             : base(context)
         {
             _context = context;
+        }
+
+        public async Task<LoanForm> GetLoanFormByPersonalDetailsAsync(string firstName, string lastName, DateTime dateOfBirth)
+        {
+            var loanForm = await base.GetAsync(
+                i => i.FirstName == firstName && 
+                i.LastName == i.LastName && 
+                i.DateOfBirth == dateOfBirth
+            );
+
+            return loanForm;
+        }
+
+        public async Task<LoanForm> GetLoanFormByGeneratedLink(string link)
+        {
+            var loanForm = await base.GetAsync(i => i.GeneratedLink == link);
+
+            return loanForm;
         }
     }
 }

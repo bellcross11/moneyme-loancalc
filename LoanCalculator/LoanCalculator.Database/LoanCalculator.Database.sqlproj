@@ -60,13 +60,12 @@
     <Folder Include="dbo\Tables" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="dbo\Tables\tblCustomers.sql" />
-    <Build Include="dbo\Tables\tblLoans.sql" />
-  </ItemGroup>
-  <ItemGroup>
     <RefactorLog Include="LoanCalculator.Database.refactorlog" />
   </ItemGroup>
   <ItemGroup>
     <None Include="LoanCalculator.Database.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\tblLoanForms.sql" />
   </ItemGroup>
 </Project>
