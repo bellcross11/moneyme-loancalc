@@ -93,15 +93,14 @@ namespace LoanCalculator.Application.Web.Controllers.Api
 
                 _uow.Loans.Add(entity);
                 await _uow.CompleteAsync();
+
+                generatedLink = entity.GeneratedLink;
             }
 
             var uriBuilder = new UriBuilder($"{Url.Content("~/")}Home/LoanCalculator");
             uriBuilder.Query = $"link={generatedLink}";
 
-            var response = Request.CreateResponse(HttpStatusCode.Moved);
-            response.Headers.Location = new Uri(uriBuilder.ToString());
-
-            return response;
+            return Request.CreateResponse(HttpStatusCode.OK, uriBuilder.Uri);
         }
 
         [HttpPut]
