@@ -19,5 +19,6 @@ namespace LoanCalculator.DataAccess.Core.Domain
         public decimal MonthlyRepayment { get; set; }
         public decimal TotalRepayment { get; set; }
         public decimal TotalInterest { get; set; }
+        public bool isLoanSuccess { get; set; }
     }
 }

@@ -1,0 +1,169 @@
+﻿
+@{
+    ViewBag.Title = "Quote";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    string link = (string)ViewBag.link;
+}
+
+<style>
+
+    a {
+        cursor:pointer;
+    }
+
+</style>
+
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-sm-4">
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <h3>Your quote</h3>
+                </div>
+            </div>
+
+            <br />
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="panel panel-success">
+                        <div class="panel-heading clearfix">
+                            <h4 class="panel-title pull-left">Your Information</h4>
+                            <div class="btn-group pull-right">
+                                <a onclick="redirectLink()">Edit</a>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-sm-12" id="customerName"></div>
+                            </div>
+                            <br />
+                            <div class="row">
+                                <div class="col-sm-12" id="customerMobile"></div>
+                            </div>
+                            <br />
+                            <div class="row">
+                                <div class="col-sm-12" id="customerEmail"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="panel panel-success">
+                        <div class="panel-heading clearfix">
+                            <h4 class="panel-title pull-left">Finance Details</h4>
+                            <div class="btn-group pull-right">
+                                <a onclick="redirectLink()">Edit</a>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-sm-12" id="financePrincipalAmount"></div>
+                            </div>
+                            <br />
+                            <div class="row">
+                                <div class="col-sm-12" id="financeMonthlyRepayment"></div>
+                            </div>
+                            <br />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <p class="text-justify" style="font-size:12px; font-weight:bolder;">
+                        Total repayments <u id="financeTotalRepayment"></u>, made up of an establishment fee of <u id="financeEstablishmentFee"></u>,
+                        interest of <u id="financeTotalInterest"></u>. The repayment amount is based on the variables
+                        selected, is subject to our assessment and suitability, and other
+                        important terms and conditions apply.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <button class="btn btn-success" style="width:100%;" onclick="submitLoan()">Apply now</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Scripts -->
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+
+<script type="text/javascript">
+
+    var loanGeneratedLink = '@link';
+
+    var quoteUI = (function ($) {
+
+        'use strict';
+
+        function getLoanDetails(link) {
+
+            $.ajax({
+                method: 'GET',
+                url: `/api/loan/form/calculate/${link}`
+            }).then(function (response) {
+                $('#customerName').append(`<strong>Name:</strong> ${response.FirstName} ${response.LastName}`);
+                $('#customerMobile').append(`<strong>Mobile:</strong> ${response.Mobile}`);
+                $('#customerEmail').append(`<strong>Email:</strong> ${response.Email}`);
+
+                $('#financePrincipalAmount').append(`<strong>Finance Amount:</strong> $${response.AmountRequired} for ${response.Term} month(s)`);
+                $('#financeMonthlyRepayment').append(`<strong>Repayments from:</strong> $${response.MonthlyRepaymentStr} monthly`);
+
+                $('#financeTotalRepayment').append(`$${response.TotalRepaymentStr}`);
+                $('#financeEstablishmentFee').append(`$${response.EstablishmentFee}`);
+                $('#financeTotalInterest').append(`$${response.TotalInterestStr}`);
+            })
+        }
+
+        function redirectToEdit(link) {
+            location.replace(`/home/loancalculator?link=${link}`);
+        }
+
+        function applyLoan(link) {
+            $.ajax({
+                method: 'GET',
+                url: `/api/loan/form/applyloan/${link}`
+            }).then(function (response) {
+                location.replace('/home/success');
+
+            }, function (response) {
+                var err = '';
+                response.responseJSON.forEach(function (msg) {
+                    err += `\n${msg}\n`;
+                })
+
+                alert(err);
+            })
+        }
+
+        return {
+            getLoanDetails: getLoanDetails,
+            redirectToEdit: redirectToEdit,
+            applyLoan: applyLoan
+        };
+
+    })(jQuery);
+
+    quoteUI.getLoanDetails(loanGeneratedLink);
+
+    function redirectLink() {
+        quoteUI.redirectToEdit(loanGeneratedLink);
+    }
+
+    function submitLoan() {
+        quoteUI.applyLoan(loanGeneratedLink);
+    }
+
+</script>

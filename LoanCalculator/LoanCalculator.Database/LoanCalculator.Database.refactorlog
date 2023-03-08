@@ -21,4 +21,25 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="MonthlyRepayment" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="1de29268-88b7-41fb-88f7-31d3cb1f101c" ChangeDateTime="03/07/2023 16:03:09">
+    <Property Name="ElementName" Value="[dbo].[tblLoanForms].[Status]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tblLoanForms]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="LoanStatusId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="f7d6e507-c2b8-4c51-b052-7417ecd378a7" ChangeDateTime="03/08/2023 02:49:50">
+    <Property Name="ElementName" Value="[dbo].[tblLoanForms].[StatusId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tblLoanForms]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="isSuccess" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="49e95ab7-e160-4f14-8fd9-b28d90f4721d" ChangeDateTime="03/08/2023 02:50:10">
+    <Property Name="ElementName" Value="[dbo].[tblLoanForms].[isSuccess]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tblLoanForms]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="isLoanSuccess" />
+  </Operation>
 </Operations>

@@ -8,11 +8,12 @@
     [Mobile] NVARCHAR(13) NULL, 
     [Email] NVARCHAR(80) NULL, 
     [GeneratedLink] NVARCHAR(100) NOT NULL,
-    [ProductId] INT NOT NULL DEFAULT 0,
+    [ProductId] INT NOT NULL DEFAULT 1,
     [EstablishmentFee] DECIMAL(18, 2) NOT NULL DEFAULT 0,
     [TotalMonthTerms] INT NOT NULL DEFAULT 0,
     [PrincipalAmount] DECIMAL(18, 2) NOT NULL DEFAULT 0, 
     [MonthlyRepayment] DECIMAL(18, 2) NOT NULL DEFAULT 0, 
     [TotalRepayment] DECIMAL(18, 2) NOT NULL DEFAULT 0,
-    [TotalInterest] DECIMAL(18, 2) NOT NULL DEFAULT 0
+    [TotalInterest] DECIMAL(18, 2) NOT NULL DEFAULT 0, 
+    [isLoanSuccess] BIT NOT NULL DEFAULT 0 
 )

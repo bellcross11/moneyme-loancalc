@@ -39,6 +39,7 @@ namespace LoanCalculator.Infrastructure.EFContext.Configurations
 
             this.Property(i => i.TotalInterest).HasPrecision(18, 2).IsRequired();
 
+            this.Property(i => i.isLoanSuccess).HasColumnType("bit").IsRequired();
 
             this.ToTable("tblLoanForms");
         }

@@ -2,7 +2,254 @@
 @{
     ViewBag.Title = "LoanCalculator";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
+    string link = (string)ViewBag.link;
 }
 
-<h2>LoanCalculator</h2>
+<div class="container-fluid">
 
+    <div class="row">
+        <div class="col-md-4">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h3>Quote Calculator</h3>
+                </div>
+            </div>
+
+            <br />
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Choose Product</h3>
+                        </div>
+                        <div class="panel-body">
+                            <select class="form-control" id="inputProduct" onchange="loanCalculator.productOnChange()">
+                                <option value="1">Product A</option>
+                                <option value="2">Product B</option>
+                                <option value="3">Product C</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Desire Amount: $<span id="amount"></span></h3>
+                        </div>
+                        <div class="panel-body">
+                            <div id="slider-amount"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Terms: <span id="term"></span> Month(s)</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div id="slider-term"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Customer Details</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <form>
+                                        <div class="form-group">
+                                            <input type="hidden" id="inputLoanFormId" />
+                                            <label class="control-label" for="inputTitle">Title: </label>
+                                            <input type="text" class="form-control" id="inputTitle" placeholder="Title">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label" for="inputFirstName">First Name: </label>
+                                            <input type="text" class="form-control" id="inputFirstName" placeholder="First Name">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label" for="inputLastName">Last Name: </label>
+                                            <input type="text" class="form-control" id="inputLastName" placeholder="Last Name">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label" for="inputDateOfBirth">Birth Date: </label>
+                                            <input type="text" class="form-control" id="inputDateOfBirth" placeholder="Birth Date">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label" for="inputMobile">Mobile No: </label>
+                                            <input type="text" class="form-control" id="inputMobile" placeholder="Mobile No.">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label" for="inputEmail">Email: </label>
+                                            <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <button class="btn btn-primary" style="width:100%;" onclick="loanCalculator.calculateQuote()">Calculate quote</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Styles -->
+<link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
+
+<!-- Scripts -->
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script src="~/Scripts/jquery-ui-1.13.2.js"></script>
+
+<script type="text/javascript">
+
+    var loanGeneratedLink = '@link';
+
+    var loanCalculator = (function ($) {
+
+        'use strict';
+
+        function initialize() {
+
+            // amount slider
+            $('#slider-amount').slider({
+                min: 100,
+                max: 15000,
+                step: 100,
+                slide: function (event, ui) {
+                    $('#amount').text(ui.value);
+                }
+            });
+
+            // term slider
+            $('#slider-term').slider({
+                min: 1,
+                max: 36,
+                step: 1,
+                slide: function (event, ui) {
+                    $('#term').text(ui.value);
+                }
+            });
+
+            // date of birth picker
+            $('#inputDateOfBirth').datepicker({
+                changeMonth: true,
+                changeYear: true
+            });
+        }
+
+        function getLoanDetails(link) {
+
+            $.ajax({
+                method: 'GET',
+                url: `/api/loan/form/${link}`
+            }).then(function (response) {
+
+                // set amount slider
+                $('#slider-amount').slider('value', response.AmountRequired);
+                $('#amount').text(response.AmountRequired);
+
+                // set term slider
+                $('#slider-term').slider('value', response.Term);
+                $('#term').text(response.Term);
+
+                // set product                
+                $('#inputProduct').val(response.ProductId === 0 ? '1' : response.ProductId);
+                // call product logic
+                productOnChange();
+
+                $('#inputLoanFormId').val(response.LoanFormId);
+                $('#inputTitle').val(response.Title);
+                $('#inputFirstName').val(response.FirstName);
+                $('#inputLastName').val(response.LastName);                
+                $('#inputDateOfBirth').datepicker('setDate', new Date(response.DateOfBirth));
+                $('#inputMobile').val(response.Mobile);
+                $('#inputEmail').val(response.Email);
+            })
+        }
+
+        function productOnChange() {
+
+            var productValue = parseInt($('#inputProduct').val());
+
+            var minRange = 1;
+
+            // if the selected value is "Product B"
+            if (productValue === 2) {
+
+                // set the minimum range of the slider to "6"
+                minRange = 6;
+
+                // if the current slider value is less than the minimum range "6", the slider value should match with the minimum range
+                if ($('#slider-term').slider('value') < 6) {
+
+                    $('#slider-term').slider('value', minRange);
+                    $('#term').text(minRange);
+
+                }
+            }
+
+            $('#slider-term').slider('option', 'min', minRange);
+
+        }
+
+        function calculateQuote() {
+
+            // save the current changes in the form and redirect to quote page
+
+            var model = {
+                AmountRequired: $('#slider-amount').slider('value'),
+                Term: $('#slider-term').slider('value'),
+                ProductId: parseInt($('#inputProduct').val()),
+                LoanFormId: $('#inputLoanFormId').val(),
+                Title: $('#inputTitle').val(),
+                FirstName: $('#inputFirstName').val(),
+                LastName: $('#inputLastName').val(),
+                DateOfBirth: $('#inputDateOfBirth').val(),
+                Mobile: $('#inputMobile').val(),
+                Email: $('#inputEmail').val()
+            };
+
+            $.ajax({
+                method: 'PUT',
+                url: '/api/loan/form',
+                data: model
+            }).then(function (response) {
+                location.replace(`/home/quote?link=${loanGeneratedLink}`);
+            })
+        }
+
+        return {
+            initialize: initialize,
+            getLoanDetails: getLoanDetails,
+            productOnChange: productOnChange,
+            calculateQuote: calculateQuote
+        };
+
+    })(jQuery);
+
+    // call the module functions
+    loanCalculator.initialize();
+    loanCalculator.getLoanDetails(loanGeneratedLink);
+
+</script>

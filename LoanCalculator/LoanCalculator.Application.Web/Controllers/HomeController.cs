@@ -19,5 +19,17 @@ namespace LoanCalculator.Application.Web.Controllers
 
             return View();
         }
+
+        public ActionResult Quote(string link)
+        {
+            ViewBag.link = link;
+
+            return View();
+        }
+
+        public ActionResult Success()
+        {
+            return View();
+        }
     }
 }
