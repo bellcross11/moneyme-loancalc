@@ -141,8 +141,12 @@ namespace LoanCalculator.Application.Web.Controllers.Api
                 Term = computedLoan.TotalMonthTerms,
                 AmountRequired = computedLoan.PrincipalAmount,
                 EstablishmentFee = computedLoan.EstablishmentFee,
+                ProductId = computedLoan.ProductId,
+                MonthlyRepayment = computedLoan.MonthlyRepayment,
                 MonthlyRepaymentStr = computedLoan.MonthlyRepayment.ToString("#.##"),
+                TotalRepayment = computedLoan.TotalRepayment,
                 TotalRepaymentStr = computedLoan.TotalRepayment.ToString("#.##"),
+                TotalInterest = computedLoan.TotalInterest,
                 TotalInterestStr = string.IsNullOrEmpty(computedLoan.TotalInterest.ToString("#.##")) ? "0" : computedLoan.TotalInterest.ToString("#.##")
             };
 
